@@ -1,9 +1,104 @@
-body {
-    background-color: gray;
+body,html {
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
   }
 
-div{
-    background-color: red; 
-    border: solid 4px blue;
-    width: 50px;
+:root{
+    --blue: #007acc;
+    --gray: #3e3e42;
+    --midgray: #2d2d30;
+    --lightblack: #252526;
+    --black: #1e1e1e;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+#page{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-areas:
+      "head head"
+      "sidebar content"
+      "sidebar content";
+    grid-template-rows: 100px 1fr ;
+    grid-template-columns: 200px 1fr;
+  }
+
+
+.header{
+    grid-area: head;
+    border-bottom: 1px solid var(--gray);
+}
+
+.sidebar{
+    grid-area: sidebar;
+}
+
+.header, .sidebar{
+    background-color: var(--black);
+    color: white;
+    border-right: 1px solid var(--gray);
+}
+
+.content{
+    align-items: center;
+    justify-content: center;
+    background-color: var(--midgray);
+    color: white;
+    grid-area: content;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 220px);
+    grid-template-rows: repeat(auto-fit, 220px);
+    padding: 10px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--lightblack);
+    border: 1px solid var(--blue);
+    height: 200px;
+    width: 200px;
+    border-radius: 25px;
+    margin: 10px
+}
+
+.title{
+    height: 20px;
+    padding: 2px;
+}
+.description{
+    height: 160px;
+    padding: 8px;
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 80px;
+    height: 20px;
+    padding: 2px;
+}
+.dueDate{
+    height: 20px;
+}
+.prio{
+    height: 20px;
+}
+
+#newToDo{
+    background-color: var(--lightblack);
+    border: 1px solid var(--blue);
+    color: white;
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    margin: 50px
 }
