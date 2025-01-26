@@ -94,11 +94,11 @@ body{
 }
 
 #newToDo{
-    background-color: var(--lightblack);
-    border: 1px solid var(--blue);
+    font-size: 60px;
+    background-color: var(--gray);
     color: white;
     height: 100px;
     width: 100px;
     border-radius: 100px;
-    margin: 50px
+    margin: 20px;
 }
