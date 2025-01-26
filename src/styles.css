@@ -63,7 +63,6 @@ body{
       "content content";
     grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
     grid-template-rows: repeat(auto-fit,220px);
-    padding: 10px;
 }
 
 .card{
