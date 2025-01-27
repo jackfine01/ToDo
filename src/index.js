@@ -13,4 +13,13 @@ const TaskThree = new Task('Title', "Lorem Ipsum", '3/3/3333')
 console.log(TaskThree);
 
 const ProjectOne = new Project('title,', [])
-console.log(ProjectOne)
+console.log(ProjectOne);
+
+ProjectOne.addTask(TaskOne)
+console.log(ProjectOne);
+
+ProjectOne.addTask(TaskTwo)
+console.log(ProjectOne);
+
+ProjectOne.addTask(TaskThree)
+console.log(ProjectOne);

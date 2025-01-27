@@ -7,5 +7,9 @@ class Project {
     getTitle(){
         return this.title;
     };
+
+    addTask( Task ){
+        this.tasks.push(Task);
+    };
 };
 export { Project };
