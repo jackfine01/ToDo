@@ -1,15 +1,15 @@
 class Project { 
     constructor (title, tasks){
-    this.title = title;
-    this.tasks = tasks;
+    this._title = title;
+    this._tasks = tasks;
     };
 
-    getTitle(){
-        return this.title;
+    get Title(){
+        return this._title;
     };
 
     addTask( Task ){
-        this.tasks.push(Task);
+        this._tasks.push(Task);
     };
 };
 export { Project };
