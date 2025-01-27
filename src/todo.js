@@ -1,9 +1,8 @@
 class Task { 
-    constructor (title, description, date, notes, project){
+    constructor (title, description, date, project){
     this.title = title;
     this.description = description;
     this.date = date;
-    this.notes = notes;
     this.project = project;
     };
 
@@ -11,3 +10,4 @@ class Task {
         return this.title;
     };
 };
+export { Task };
