@@ -46,6 +46,8 @@ body{
     background-color: var(--black);
     color: white;
     border-right: 1px solid var(--gray);
+    grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+    grid-template-rows: repeat(auto-fit,100px);
 }
 
 .content{
@@ -153,4 +155,13 @@ body{
     height: 80px;
     font-size: 40px;
     text-align: center;
+}
+#newProj{
+    font-size: 60px;
+    background-color: var(--gray);
+    color: white;
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    margin: 10px;
 }
