@@ -1,11 +1,11 @@
 import "./styles.css";
-import { Task } from "./todo.js"
+import { Task, createTaskDOM, generateID } from "./todo.js"
 import { Project } from "./project.js"
 
-const newProjectDOM = document.getElementById('newProj');
+const newProjectDOM = document.getElementById('newToDo');
 newProjectDOM.addEventListener('click', function(){
-
-    console.log('creating project');
+    createTaskDOM();
+    console.log('creating toDo');
 });
 
 console.log('i live')
@@ -32,3 +32,6 @@ TaskThree.description = 'She Lorem till I ipsum';
 
 ProjectOne.deleteTask(TaskTwo);
 console.log(ProjectOne._tasks);
+
+console.log(generateID)
+generateID(Math.random());

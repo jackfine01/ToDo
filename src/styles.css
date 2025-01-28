@@ -50,7 +50,7 @@ body{
     grid-template-rows: repeat(auto-fit,100px);
 }
 
-.content{
+#content{
 
     background-color: var(--midgray);
     color: white;
