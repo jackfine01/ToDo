@@ -19,5 +19,9 @@ class Project {
     addTask( Task ){
         this._tasks.push(Task);
     };
+    deleteTask(taskToDelete) {
+        this._tasks = this._tasks.filter(task => task !== taskToDelete);
+    }
+    
 };
 export { Project };

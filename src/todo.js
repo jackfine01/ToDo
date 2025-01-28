@@ -30,3 +30,7 @@ class Task {
     }
 };
 export { Task };
+
+function createTaskDOM(){
+    
+}
