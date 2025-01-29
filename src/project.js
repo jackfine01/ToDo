@@ -22,6 +22,9 @@ class Project {
     deleteTask(taskToDelete) {
         this._tasks = this._tasks.filter(task => task !== taskToDelete);
     }
-    
 };
-export { Project };
+
+function createProjectArray(){
+    return [];
+};
+export { Project, createProjectArray};

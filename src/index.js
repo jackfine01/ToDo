@@ -1,12 +1,14 @@
 import "./styles.css";
 import { Task, createTaskDOM, generateID } from "./todo.js"
-import { Project } from "./project.js"
+import { createProjectArray, Project } from "./project.js"
 
 const newProjectDOM = document.getElementById('newToDo');
 newProjectDOM.addEventListener('click', function(){
     createTaskDOM();
     console.log('creating toDo');
 });
+
+createProjectArray();
 
 // console.log('i live')
 
