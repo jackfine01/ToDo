@@ -1,8 +1,11 @@
+import { Project } from "./project.js"
+
 class Task { 
-    constructor (title, description, date){
+    constructor (title, description, date, project){
     this._title = title;
     this._description = description;
     this._date = date;    
+    this._project = project;
 };
 
     get title(){
@@ -68,16 +71,24 @@ function createForm(id){
     const descLabel = document.createElement('label');
     descLabel.textContent = 'Description'
     const descInput = document.createElement('input');
-    titleInput.type = 'text';
-    titleInput.name = 'description';
+    descInput.type = 'text';
+    descInput.name = 'description';
     form.appendChild(descLabel)
     form.appendChild(descInput)
+
+    const projectLabel = document.createElement('label');
+    projectLabel.textContent = 'Project'
+    const projectInput = document.createElement('input');
+    projectInput.type = 'text';
+    projectInput.name = 'description';
+    form.appendChild(projectLabel)
+    form.appendChild(projectInput)
 
     const dateLabel = document.createElement('label');
     dateLabel.textContent = 'Due Date'
     const dateInput = document.createElement('input');
-    titleInput.type = 'text';
-    titleInput.name = 'dueDate';
+    dateInput.type = 'text';
+    dateInput.name = 'dueDate';
     form.appendChild(dateLabel)
     form.appendChild(dateInput)
 
@@ -90,9 +101,10 @@ function createForm(id){
             event.preventDefault(); 
             const title = titleInput.value;
             const description = descInput.value;
+            const project = projectInput.value;
             const dueDate = dateInput.value;
     
-            createCard(title, description, dueDate);
+            let newTask = new Task(title, description, dueDate, project)
             form.parentElement.remove();
         });
 
@@ -111,6 +123,10 @@ function createCard(title, description, dueDate) {
     const descriptionElement = document.createElement('div');
     descriptionElement.textContent = description;
     descriptionElement.className = '.description';
+    
+    const projectElement = document.createElement('div');
+    projectElement.textContent = project;
+    projectElement.className = '.projNum';
 
     const dueDateElement = document.createElement('div');
     dueDateElement.textContent = `Due Date: ${dueDate}`;
@@ -118,6 +134,7 @@ function createCard(title, description, dueDate) {
 
     card.appendChild(titleElement);
     card.appendChild(descriptionElement);
+    card.appendChild(projectElement);
     card.appendChild(dueDateElement);
 
     content.appendChild(card);
