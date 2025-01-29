@@ -36,6 +36,10 @@ function checkProject(task, array){
             console.log(`Checking: ${array[i].title} against ${task.project}`)
             return true;
         }
+        else if(array[i].title != task.project){
+            console.log(`Checking: ${array[i].title} against ${task.project}`)
+            return false;
+        };
     };
     return false;
 };

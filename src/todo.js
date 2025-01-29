@@ -29,7 +29,7 @@ class Task {
     };
 
     set project(newProj){
-        this._date = newProj;
+        this._project = newProj;
     }
 
     get date(){
