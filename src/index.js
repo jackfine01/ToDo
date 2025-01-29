@@ -8,7 +8,9 @@ newProjectDOM.addEventListener('click', function(){
     console.log('creating toDo');
 });
 
-createProjectArray();
+const projectArray = createProjectArray();
+
+const TaskFour = new Task('Task Four', 'Lorem Ipsyum', '1/1/4444', 'Project 1')
 
 // console.log('i live')
 

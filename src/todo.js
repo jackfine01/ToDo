@@ -103,15 +103,16 @@ function createForm(id){
             const description = descInput.value;
             const project = projectInput.value;
             const dueDate = dateInput.value;
-    
-            let newTask = new Task(title, description, dueDate, project)
+
+            createCard(title, description, dueDate, project);
+
             form.parentElement.remove();
         });
 
     return form;
 }
 
-function createCard(title, description, dueDate) {
+function createCard(title, description, dueDate, project) {
     const content = document.getElementById('content'); 
     const card = document.createElement('div');
     card.className = 'card';
@@ -125,7 +126,7 @@ function createCard(title, description, dueDate) {
     descriptionElement.className = '.description';
     
     const projectElement = document.createElement('div');
-    projectElement.textContent = project;
+    projectElement.textContent = `Project:  ${project}`;
     projectElement.className = '.projNum';
 
     const dueDateElement = document.createElement('div');

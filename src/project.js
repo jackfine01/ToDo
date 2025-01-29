@@ -27,4 +27,20 @@ class Project {
 function createProjectArray(){
     return [];
 };
-export { Project, createProjectArray};
+
+function checkProject(task, array){
+
+    for(let i = 0; i<array.length; i++){
+        if (array[i] == task.project){
+            return true;
+        }
+    };
+    return false;
+};
+
+function addToProject(task, array){
+    if(checkProject(task,array)){
+        array.push(task);
+    };
+};
+export { Project, createProjectArray, checkProject, addToProject};
