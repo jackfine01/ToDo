@@ -93,7 +93,6 @@ function createForm(id){
             const dueDate = dateInput.value;
     
             createCard(title, description, dueDate);
-    
             form.parentElement.remove();
         });
 
@@ -105,18 +104,21 @@ function createCard(title, description, dueDate) {
     const card = document.createElement('div');
     card.className = 'card';
 
-    const titleElement = document.createElement('h3');
+    const titleElement = document.createElement('div');
     titleElement.textContent = title;
+    titleElement.className = '.title';
 
-    const descriptionElement = document.createElement('p');
+    const descriptionElement = document.createElement('div');
     descriptionElement.textContent = description;
+    descriptionElement.className = '.description';
 
-    const dueDateElement = document.createElement('p');
+    const dueDateElement = document.createElement('div');
     dueDateElement.textContent = `Due Date: ${dueDate}`;
+    dueDateElement.className = '.dueDate';
 
     card.appendChild(titleElement);
     card.appendChild(descriptionElement);
     card.appendChild(dueDateElement);
 
     content.appendChild(card);
-}
+};
