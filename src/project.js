@@ -30,8 +30,10 @@ function createProjectArray(){
 
 function checkProject(task, array){
 
-    for(let i = 0; i<array.length; i++){
-        if (array[i] == task.project){
+    for(let i = 0; i < array; i++){
+
+        if (array[i].title == task.project){
+            console.log(`Checking: ${array[i].title} against ${task.project}`)
             return true;
         }
     };
