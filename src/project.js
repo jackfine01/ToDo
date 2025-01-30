@@ -1,3 +1,5 @@
+import { createTaskDOM } from "./DOM";
+
 class Project { 
     constructor (title, tasks = []){
     this._title = title;
@@ -45,12 +47,8 @@ function checkProject(task, array){
 };
 
 function addToProject(task, array){
-    if(checkProject(task,array)){
-        array.push(task);
-    }
-    else{
-    const newProject = new Project(task.project)
-    newProject.tasks.push(task);
+    if (checkProject(task, array)){
+        array.tasks.push(task)
     }
 };
 export { Project, createProjectArray, checkProject, addToProject};

@@ -8,15 +8,12 @@ newProjectDOM.addEventListener('click', function(){
     console.log('creating toDo');
 });
 
-
-
-
 const projectArray = createProjectArray();
 console.log(projectArray);
 
 function createNewTask(title, description, date, project){
     const newTask = new Task(title, description, date, project)
-    addToProject(newTask, projectArray)
+    addToProject(newTask, newTask.project)
     console.log(projectArray)
 };
 
@@ -24,11 +21,10 @@ const ProjectOne = new Project('Project 1', [])
 projectArray.push(ProjectOne)
 
 
-const TaskFour = new Task('Task Four', 'Lorem Ipsyum', '1/1/4444', 'Project 1')
-console.log(TaskFour.project)
+const TaskOne = new Task('Task One', 'Lorem Ipsyum', '1/1/4444', 'Project 1')
+console.log(TaskOne.project)
 console.log(ProjectOne.title)
 
-checkProject(TaskFour, projectArray)
+addToProject(TaskOne, ProjectOne);
+console.log(projectArray)
 
-addToProject(TaskFour, projectArray);
-console.log(projectArray);
