@@ -111,14 +111,3 @@ function createCard(title, description, dueDate, project) {
 };
 export { createCard }
 
-function createProjCard(title){
-    const sidebar = document.getElementsByClassName('sidebar'); 
-    const card = document.createElement('div');
-    card.className = 'projCard';
-
-    const titleElement = document.createElement('div');
-    titleElement.textContent = title;
-    titleElement.className = '.title';
-    card.appendChild(titleElement);
-    sidebar.appendChild(card);
-};

@@ -65,6 +65,7 @@ body{
       "content content";
     grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
     grid-template-rows: repeat(auto-fit,220px);
+    overflow: scroll;
 }
 
 .card{
@@ -75,6 +76,20 @@ body{
     border: 1px solid var(--gray);
     height: 200px;
     width: 200px;
+    border-radius: 25px;
+    margin: 10px;
+}
+
+.projCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+    background-color: var(--lightblack);
+    border: 1px solid var(--gray);
+    height: 40px;
+    width: 120px;
     border-radius: 25px;
     margin: 10px;
 }
@@ -115,7 +130,7 @@ body{
     width: 100px;
     border-radius: 100px;
     margin: 10px;
-    grid-area: button;
+    grid-area: head;
 }
 
 #projectTitle{
