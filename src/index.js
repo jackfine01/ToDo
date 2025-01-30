@@ -9,12 +9,27 @@ newProjectDOM.addEventListener('click', function(){
     console.log('creating toDo');
 });
 
+function createProjDOM(){
+    const sidebar = document.getElementById('sidebar');
+    const projCard = document.createElement('div');
+    projCard.className = 'projCard';
+    sidebar.appendChild(projCard);
+    
+    const form = createProjForm();
+    projCard.appendChild(form);
+};
+
+
 const projectArray = createProjectArray();
 const general = new Project("General");
 addProject(projectArray, general)
 const TaskOne = new Task("Task One", "Description One", "Due Date")
 addTaskToProject(general, TaskOne);
 
+const ProjectButton = document.getElementById("newProj")
+ProjectButton.addEventListener('click', function(event){
+    createProjDOM();
+});
 
 function displayProjectArray(){
     const cardsToDelete = document.querySelectorAll('.projCard')
@@ -29,6 +44,8 @@ function displayProjectArray(){
 function displayProjectTasks(){
 
 }
+
+
 
 function createTaskDOM(){
     const content = document.getElementById('content');
@@ -98,6 +115,35 @@ function createForm(){
             createCard(title, description, dueDate, project);
             createNewTask(title, description, dueDate, project, projectArray);
             form.parentElement.remove();
+        });
+
+    return form;
+}
+
+function createProjForm(){
+    const form = document.createElement('form');
+
+    const titleLabel = document.createElement('label');
+    titleLabel.textContent = 'Title'
+    const titleInput = document.createElement('input');
+    titleInput.type = 'text';
+    titleInput.name = 'title';
+    form.appendChild(titleLabel)
+    form.appendChild(titleInput)
+
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.textContent = 'Submit';
+    form.appendChild(submitButton);
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); 
+            const title = titleInput.value;
+            const newProj = new Project(title)
+            createProjCard(title);
+            addProject(projectArray, newProj)
+            form.parentElement.remove();
+            console.log(projectArray)
         });
 
     return form;
