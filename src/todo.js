@@ -33,6 +33,3 @@ class Task {
 };
 export { Task };
 
-function createNewTask(title, description, date, project){
-    const newTask = new Task(title, description, date, project)
-};

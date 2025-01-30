@@ -19,7 +19,6 @@ function createProjDOM(){
     projCard.appendChild(form);
 };
 
-
 const projectArray = createProjectArray();
 const general = new Project("General");
 addProject(projectArray, general)
@@ -29,6 +28,10 @@ addTaskToProject(general, TaskOne);
 let currentProject = general;
 const setCurrentProject = function(project){
     currentProject = project;
+}
+let currentTask = TaskOne;
+const setCurrentTask = function(task){
+    currentTask = task;
 }
 
 const ProjectButton = document.getElementById("newProj")
@@ -56,12 +59,34 @@ function displayProjectArray(){
 
 function displayProjectTasks(project){
     const cardsToDelete = document.querySelectorAll('.card')
-    cardsToDelete.forEach(element => {
-        element.remove();
+    cardsToDelete.forEach(card => {
+        card.remove();
     });  
-    project.tasks.forEach(element => {
-        createCard(element.title, element.description, element.date)
+    project.tasks.forEach(task => {
+        createCard(task.title, task.description, task.date)
     });  
+    const activeCards = document.querySelectorAll('.card')
+    activeCards.forEach(card => {
+        const deleteButton = document.createElement('button');
+        deleteButton.type = 'button';
+        deleteButton.textContent = 'Delete';
+    
+        deleteButton.addEventListener('click', function(event){
+            event.preventDefault();
+            currentProject.deleteTask(currentTask);
+            card.remove();
+        })
+        card.appendChild(deleteButton);
+        card.addEventListener('mouseover', function(event){
+            event.preventDefault();
+            for(let i = 0; i< project.tasks.length; i++){
+                if(project.tasks[i].title==card.firstChild.textContent){
+                    setCurrentTask(project.tasks[i])
+                    console.log(currentTask);
+                };
+            };
+        })
+    })
 }
 
 function createTaskDOM(){
@@ -69,9 +94,9 @@ function createTaskDOM(){
     const taskCard = document.createElement('div');
     taskCard.className = 'card';
     content.appendChild(taskCard);
-    
 
-    const id = generateID();
+
+
     const form = createForm();
     taskCard.appendChild(form);
 };
@@ -120,8 +145,9 @@ function createForm(){
             const description = descInput.value;
             const dueDate = dateInput.value;
 
+
+
             const newTask = new Task(title, description, dueDate)
-            console.log("pushing " + newTask.title + " to " + currentProject.title)
             currentProject.tasks.push(newTask)
             form.parentElement.remove();
         });
@@ -174,6 +200,8 @@ function createCard(title, description, dueDate) {
     const dueDateElement = document.createElement('div');
     dueDateElement.textContent = `Due Date: ${dueDate}`;
     dueDateElement.className = '.dueDate';
+
+
 
     card.appendChild(titleElement);
     card.appendChild(descriptionElement);
