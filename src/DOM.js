@@ -1,3 +1,6 @@
+import { Task } from "./todo"
+
+
 function createTaskDOM(){
     const content = document.getElementById('content');
     const taskCard = document.createElement('div');

@@ -8,8 +8,17 @@ newProjectDOM.addEventListener('click', function(){
     console.log('creating toDo');
 });
 
+
+
+
 const projectArray = createProjectArray();
 console.log(projectArray);
+
+function createNewTask(title, description, date, project){
+    const newTask = new Task(title, description, date, project)
+    addToProject(newTask, projectArray)
+    console.log(projectArray)
+};
 
 const ProjectOne = new Project('Project 1', [])
 projectArray.push(ProjectOne)

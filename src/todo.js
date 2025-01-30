@@ -1,4 +1,4 @@
-import { Project } from "./project.js"
+import { addToProject, Project } from "./project.js"
 
 class Task { 
     constructor (title, description, date, project){

@@ -47,6 +47,10 @@ function checkProject(task, array){
 function addToProject(task, array){
     if(checkProject(task,array)){
         array.push(task);
-    };
+    }
+    else{
+    const newProject = new Project(task.project)
+    newProject.tasks.push(task);
+    }
 };
 export { Project, createProjectArray, checkProject, addToProject};
