@@ -88,8 +88,8 @@ body{
     font-size: 24px;
     background-color: var(--lightblack);
     border: 1px solid var(--gray);
-    height: 40px;
-    width: 120px;
+    width: 179px;
+    height: min-content;
     border-radius: 25px;
     margin: 10px;
 }

@@ -30,27 +30,6 @@ function createProjectArray(){
     return [];
 };
 
-function checkProject(task, array){
-
-    for(let i = 0; i < array; i++){
-
-        if (array[i].title == task.project){
-            console.log(`Checking: ${array[i].title} against ${task.project}`)
-            return true;
-        }
-        else if(array[i].title != task.project){
-            console.log(`Checking: ${array[i].title} against ${task.project}`)
-            return false;
-        };
-    };
-    return false;
-};
-
-function addToProject(task, array){
-    if (checkProject(task, array)){
-        array.tasks.push(task)
-    }
-};
 
 function createProjCard(title){
     const sidebar = document.getElementById('sidebar');
@@ -65,4 +44,11 @@ function createProjCard(title){
     card.appendChild(titleElement);
     sidebar.appendChild(card);
 };
-export { Project, createProjectArray, checkProject, addToProject, createProjCard};
+
+function addTaskToProject(project, task){
+    project.tasks.push(task);
+}
+function addProject(array, project){
+    array.push(project)
+};
+export { Project, addProject, addTaskToProject, createProjectArray, createProjCard};

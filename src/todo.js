@@ -1,11 +1,10 @@
 import { addToProject, Project } from "./project.js"
 
 class Task { 
-    constructor (title, description, date, project){
+    constructor (title, description, date){
     this._title = title;
     this._description = description;
     this._date = date;    
-    this._project = project;
 };
 
     get title(){
@@ -24,14 +23,6 @@ class Task {
         this._description = newDescription;
     }
 
-    get project(){
-        return this._project;
-    };
-
-    set project(newProj){
-        this._project = newProj;
-    }
-
     get date(){
         return this._date;
     };
@@ -42,3 +33,6 @@ class Task {
 };
 export { Task };
 
+function createNewTask(title, description, date, project){
+    const newTask = new Task(title, description, date, project)
+};
