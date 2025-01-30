@@ -1,5 +1,10 @@
 import { Task } from "./todo"
+import { addToProject } from "./project"
 
+function createNewTask(title, description, date, project){
+    const newTask = new Task(title, description, date, project)
+    addToProject(newTask, newTask.project)
+};
 
 function createTaskDOM(){
     const content = document.getElementById('content');
@@ -20,7 +25,7 @@ function generateID(id){
 };
 export { generateID }
 
-function createForm(id){
+function createForm(){
     const form = document.createElement('form');
 
     const titleLabel = document.createElement('label');
@@ -68,6 +73,7 @@ function createForm(id){
             const dueDate = dateInput.value;
 
             createCard(title, description, dueDate, project);
+            createNewTask(title, description, dueDate, project);
             form.parentElement.remove();
         });
 
