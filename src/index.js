@@ -26,6 +26,11 @@ addProject(projectArray, general)
 const TaskOne = new Task("Task One", "Description One", "Due Date")
 addTaskToProject(general, TaskOne);
 
+let currentProject = general;
+const setCurrentProject = function(project){
+    currentProject = project;
+}
+
 const ProjectButton = document.getElementById("newProj")
 ProjectButton.addEventListener('click', function(event){
     createProjDOM();
@@ -37,15 +42,27 @@ function displayProjectArray(){
         element.remove();
     });  
     projectArray.forEach(element => {
-        createProjCard(element.title)
+        const card = createProjCard(element.title)
+        card.addEventListener('click', function (event) {
+            event.preventDefault(); 
+            setCurrentProject(element);
+            console.log(currentProject.title);
+            displayProjectTasks(element);
+            displayProjectArray()
+        });
     });  
 }
 
-function displayProjectTasks(){
 
+function displayProjectTasks(project){
+    const cardsToDelete = document.querySelectorAll('.card')
+    cardsToDelete.forEach(element => {
+        element.remove();
+    });  
+    project.tasks.forEach(element => {
+        createCard(element.title, element.description, element.date)
+    });  
 }
-
-
 
 function createTaskDOM(){
     const content = document.getElementById('content');
@@ -84,14 +101,6 @@ function createForm(){
     form.appendChild(descLabel)
     form.appendChild(descInput)
 
-    const projectLabel = document.createElement('label');
-    projectLabel.textContent = 'Project'
-    const projectInput = document.createElement('input');
-    projectInput.type = 'text';
-    projectInput.name = 'description';
-    form.appendChild(projectLabel)
-    form.appendChild(projectInput)
-
     const dateLabel = document.createElement('label');
     dateLabel.textContent = 'Due Date'
     const dateInput = document.createElement('input');
@@ -109,11 +118,11 @@ function createForm(){
             event.preventDefault(); 
             const title = titleInput.value;
             const description = descInput.value;
-            const project = projectInput.value;
             const dueDate = dateInput.value;
 
-            createCard(title, description, dueDate, project);
-            createNewTask(title, description, dueDate, project, projectArray);
+            const newTask = new Task(title, description, dueDate)
+            console.log("pushing " + newTask.title + " to " + currentProject.title)
+            currentProject.tasks.push(newTask)
             form.parentElement.remove();
         });
 
@@ -149,7 +158,7 @@ function createProjForm(){
     return form;
 }
 
-function createCard(title, description, dueDate, project) {
+function createCard(title, description, dueDate) {
     const content = document.getElementById('content'); 
     const card = document.createElement('div');
     card.className = 'card';
@@ -161,10 +170,6 @@ function createCard(title, description, dueDate, project) {
     const descriptionElement = document.createElement('div');
     descriptionElement.textContent = description;
     descriptionElement.className = '.description';
-    
-    const projectElement = document.createElement('div');
-    projectElement.textContent = `Project:  ${project}`;
-    projectElement.className = '.projNum';
 
     const dueDateElement = document.createElement('div');
     dueDateElement.textContent = `Due Date: ${dueDate}`;
@@ -172,7 +177,6 @@ function createCard(title, description, dueDate, project) {
 
     card.appendChild(titleElement);
     card.appendChild(descriptionElement);
-    card.appendChild(projectElement);
     card.appendChild(dueDateElement);
 
     content.appendChild(card);

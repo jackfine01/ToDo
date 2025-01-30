@@ -43,6 +43,8 @@ function createProjCard(title){
     
     card.appendChild(titleElement);
     sidebar.appendChild(card);
+
+    return card;
 };
 
 function addTaskToProject(project, task){
