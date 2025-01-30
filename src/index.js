@@ -1,7 +1,7 @@
 import "./styles.css";
 import { Task} from "./todo.js"
 import { createProjectArray, addToProject, Project, checkProject } from "./project.js"
-
+import { createTaskDOM, generateID, createForm, createCard } from "./DOM.js"
 const newProjectDOM = document.getElementById('newToDo');
 newProjectDOM.addEventListener('click', function(){
     createTaskDOM();

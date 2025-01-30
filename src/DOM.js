@@ -70,6 +70,7 @@ function createForm(id){
 
     return form;
 }
+export { createForm };
 
 function createCard(title, description, dueDate, project) {
     const content = document.getElementById('content'); 
@@ -99,3 +100,4 @@ function createCard(title, description, dueDate, project) {
 
     content.appendChild(card);
 };
+export { createCard }
