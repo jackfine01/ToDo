@@ -53,14 +53,16 @@ function addToProject(task, array){
 };
 
 function createProjCard(title){
-    const sidebar = document.getElementById('sidebar'); 
+    const sidebar = document.getElementById('sidebar');
+
     const card = document.createElement('div');
     card.className = 'projCard';
 
     const titleElement = document.createElement('div');
     titleElement.textContent = title;
     titleElement.className = '.title';
-
-    card.appendChild(sidebar)
+    
+    card.appendChild(titleElement);
+    sidebar.appendChild(card);
 };
 export { Project, createProjectArray, checkProject, addToProject, createProjCard};
